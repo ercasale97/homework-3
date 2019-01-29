@@ -1,7 +1,7 @@
 // Create an array of words
 //
 //
-const words = ['fat', 'lazy', 'hungry',];
+const words = ['all-ears', 'pigs-fly', 'cats-and-dogs',];
 // Choose word randomly
 	let randNum = Math.floor(Math.random() * words.length);
 	let rightWord = [];
