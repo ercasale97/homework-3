@@ -1,17 +1,23 @@
 // Create an array of words
+//
+//
 const words = ['fat', 'lazy', 'hungry',];
 // Choose word randomly
 	let randNum = Math.floor(Math.random() * words.length);
 	let rightWord = [];
 	let wrongWord =[];
 	let chosenWord = words[randNum];
-	console.log(chosenWord);
+	let underScore = [];
 
-//Testing
-let underScore = [];
-console.log(chosenWord);
+//
+let docUnderScore = document.getElementsbyClassName('underscore');
+let docRightGuess = document.getElementsByClassName('rightGuess');
+let docWrongGuess = document.getElementsByClassName('wrongGuess');
 
+//
 // Create underscores based on length of word
+console.log(chosenWord);
+//
 let generateUnderscore = () => {
 	for(let i = 0; i < chosenWord.length; i++) {
 		underScore.push('_');
@@ -19,21 +25,26 @@ let generateUnderscore = () => {
 	return underScore;
 }
 
-console.log(generateUnderscore());
 // Get users guess
 document.addEventListener('keypress', (event) => {
 	let keyWord = String.fromCharCode(event.keyCode);
 //if users guess is right
-	console.log(chosenWord.indexOf(chosenWord));
 	if(chosenWord.indexOf(keyWord) > -1) {
 		// add to right words array
 		rightWord.push(keyWord);
 		// replace underscore with right letter
-		underScore[(chosenWord.indexOf(keyWord)] = keyWord;
-		console.log(rightWord);
-	}else
+		underScore[chosenWord.indexOf(keyWord)] = keyWord;
+		docUnderScore[0].innerHTML = underScore.join(' ');
+		docRightGuess[0].innerHTML = rightWord;
+		//
+		if(underScore.join(' ') == chosenWord) {
+			alert('you win');
+		}
+	}
+	else {
 	wrongWord.push(keyWord);
-	console.log(wrongWord);
+	docWrongGuess[0].innerHTMl = wrongWord;
+}
 });
 // Check if guess is right
 // If right push to right array
